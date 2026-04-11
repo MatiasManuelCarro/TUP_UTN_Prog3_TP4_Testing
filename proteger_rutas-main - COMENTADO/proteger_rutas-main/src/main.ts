@@ -1,5 +1,6 @@
-import { getSession } from './utils/localStorage';
+// Ver detalles en DOCUMENTACION.md#srcmain.ts
 
+import { getSession } from './utils/localStorage';
 export function checkAccess(requiredRole?: 'admin' | 'client') {
   const session = getSession();
   if (!session || !session.loggedIn) {
