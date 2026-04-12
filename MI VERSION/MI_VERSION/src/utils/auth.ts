@@ -1,6 +1,6 @@
 import type { IUser } from "../types/IUser";
 import type { Rol } from "../types/Rol";
-import { getUser, removeUser } from "./localStorage";
+import { getUserData, removeUser } from "./localStorage";
 import { navigate } from "./navigate";
 
 export const checkAuhtUser = (
@@ -10,7 +10,7 @@ export const checkAuhtUser = (
 ) => {
   console.log("comienzo de checkeo");
 
-  const user = getUser();
+  const user = getUserData();
 
   if (!user) {
     console.log("no existe en local");

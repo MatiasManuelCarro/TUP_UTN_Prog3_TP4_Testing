@@ -1,29 +1,15 @@
 import type { IUser } from "../types/IUser";
-//
-//export const addUser = 
 
-//export const saveUser = (user: IUser) => {
-//  const parseUser = JSON.stringify(user);
-// const usuarioDuplicado = localStorage.getItem(user.email);
-//revisar logica de duplicado!!!!!!!!!!
-// if (!usuarioDuplicado){
-//localStorage.setItem(user.email, parseUser);
-// console.log("usuario creado")
-// } else{
-//   console.log("usuario duplicado")
-// }
-//};
-// export const getUser = () => {
-//   return localStorage.getItem("userData");
-// };
+const USERS = 'users';
+const  ACTIVE_USER = 'userData';
 
 export function saveUser(user: IUser & { password: string }): void {
   const parseUser = JSON.stringify(user);
-  localStorage.setItem("userData", parseUser);
+  localStorage.setItem(USERS, parseUser);
 }
 
 export function getUser(): (IUser & { password: string })[] {
-  const userData = localStorage.getItem("users")
+  const userData = localStorage.getItem(USERS)
 
   //verifica que no sea array vacio o null
   //si es asi devuelve un array vacio
@@ -38,6 +24,11 @@ export function getUser(): (IUser & { password: string })[] {
 //devuelve parse data con datos + pasword
 return JSON.parse(userData) as (IUser & { password: string })[];
 }
+
+//Devuelve el usuario logeado en el momento
+export const getUserData = () => {
+  return localStorage.getItem(ACTIVE_USER);
+};
 
 export const removeUser = () => {
   localStorage.removeItem("userData");

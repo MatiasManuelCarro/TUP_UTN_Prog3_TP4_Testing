@@ -25,9 +25,13 @@ if (!user) {
     return alert("Contraseña incorrecta.");
   }
 
- // Marcar sesión iniciada
+ // Guardar sesión iniciada
   user.loggedIn = true;
   saveUser(user);
+
+  //Guarda el usuario logeado en este momento en localStorage
+  const parseUser = JSON.stringify(user);
+  localStorage.setItem("userData", parseUser);
 
 //verificar roles
   if (user.role === "admin") {
