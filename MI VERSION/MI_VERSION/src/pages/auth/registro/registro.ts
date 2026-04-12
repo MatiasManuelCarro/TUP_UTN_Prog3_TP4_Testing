@@ -1,8 +1,9 @@
 import type { IUser } from "../../../types/IUser";
 import { saveUser, findUserByEmail } from "../../../utils/localStorage";
 
+document.addEventListener('DOMContentLoaded', () => {
 const errorMessage = document.getElementById('error') as HTMLDivElement | null;
-const form = document.getElementById('registro-form') as HTMLFormElement;
+const form = document.getElementById('register-form') as HTMLFormElement;
 form.addEventListener('submit', registerSubmit);
 
 const showError = (msg: string) => {
@@ -43,6 +44,7 @@ function registerSubmit(event: Event) {
     //agrega usuario y cambia a la pagina de login
     saveUser(newUser);
     location.href = '/src/pages/auth/login/login.html';
+    console.log("registrarme presionado")
 }
-
+});
 

@@ -1,7 +1,7 @@
 import { navigate } from "../../../utils/navigate";
 import { saveUser, findUserByEmail } from "../../../utils/localStorage";
 
-const form = document.getElementById("form") as HTMLFormElement;
+const form = document.getElementById("login-form") as HTMLFormElement;
 const inputEmail = document.getElementById("email") as HTMLInputElement;
 const inputPassword = document.getElementById("password") as HTMLInputElement;
 

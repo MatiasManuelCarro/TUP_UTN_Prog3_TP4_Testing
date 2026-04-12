@@ -3,33 +3,26 @@ import type { IUser } from "../types/IUser";
 const USERS = 'users';
 const  ACTIVE_USER = 'userData';
 
+
 export function saveUser(user: IUser & { password: string }): void {
-  const parseUser = JSON.stringify(user);
-  localStorage.setItem(USERS, parseUser);
+  const users = getUser(); // recupera el array actual
+  users.push(user);        // agrega el nuevo usuario
+  localStorage.setItem(USERS, JSON.stringify(users));
 }
+
 
 export function getUser(): (IUser & { password: string })[] {
-  const userData = localStorage.getItem(USERS)
-
-  //verifica que no sea array vacio o null
-  //si es asi devuelve un array vacio
-  if (userData === null) {
-    return [];
-  }
-
-  if (userData === "") {
-    return [];
-  }
-
-//devuelve parse data con datos + pasword
-return JSON.parse(userData) as (IUser & { password: string })[];
+  const userData = localStorage.getItem(USERS);
+  return userData ? JSON.parse(userData) : [];
 }
+
 
 //Devuelve el usuario logeado en el momento
 export const getUserData = () => {
   return localStorage.getItem(ACTIVE_USER);
 };
 
+//quita el usuario
 export const removeUser = () => {
   localStorage.removeItem("userData");
 };
