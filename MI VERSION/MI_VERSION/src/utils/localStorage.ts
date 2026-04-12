@@ -1,7 +1,7 @@
 import type { IUser } from "../types/IUser";
 
 const USERS = 'users';
-const  ACTIVE_USER = 'userData';
+const ACTIVE_USER = 'userData';
 
 
 export function saveUser(user: IUser & { password: string }): void {
@@ -24,7 +24,7 @@ export const getUserData = () => {
 
 //quita el usuario
 export const removeUser = () => {
-  localStorage.removeItem("userData");
+  localStorage.removeItem(ACTIVE_USER);
 };
 
 export const findUserByEmail = (email: string) => {
