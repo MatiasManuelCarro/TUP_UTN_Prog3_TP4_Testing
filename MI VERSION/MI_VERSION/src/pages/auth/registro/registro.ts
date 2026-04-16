@@ -2,7 +2,7 @@ import type { IUser } from "../../../types/IUser";
 import { saveUser, findUserByEmail } from "../../../utils/localStorage";
 
 document.addEventListener('DOMContentLoaded', () => {
-const errorMessage = document.getElementById('error') as HTMLDivElement | null;
+const errorMessage = document.getElementById('error') as HTMLDivElement;
 const form = document.getElementById('register-form') as HTMLFormElement;
 form.addEventListener('submit', registerSubmit);
 

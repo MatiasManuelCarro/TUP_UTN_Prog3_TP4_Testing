@@ -21,7 +21,7 @@ export function getUser(): (IUser & { password: string })[] {
 export const getUserData = () => {
   //return localStorage.getItem(ACTIVE_USER); !!codigo anterior
   const data = localStorage.getItem(ACTIVE_USER);
-  return data ? JSON.parse(data) : null;
+  return data ? JSON.parse(data) : undefined;
 };
 
 
