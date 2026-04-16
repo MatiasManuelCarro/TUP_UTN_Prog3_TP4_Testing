@@ -10,10 +10,6 @@ buttonLogout?.addEventListener("click", () => {
 
 const initPage = () => {
   console.log("inicio de pagina");
-  checkAuhtUser(
-    "/src/pages/auth/login/login.html",
-    "/src/pages/client/home/home.html",
-    "admin"
-  );
+  checkAuhtUser();
 };
 initPage();

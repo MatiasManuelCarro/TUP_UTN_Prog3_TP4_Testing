@@ -25,6 +25,18 @@ export const getUserData = () => {
   return data ? JSON.parse(data) : null;
 };
 
+// export const getUserNoPass = (): IUser | null => {
+//   const data = localStorage.getItem(ACTIVE_USER);
+//   if (!data) return null;
+
+//   const user = JSON.parse(data);
+
+//   // Eliminamos el password antes de devolver
+//   const { password, ...safeUser } = user;
+
+//   return safeUser as IUser;
+// };
+
 //quita el usuario
 export const removeUser = () => {
   localStorage.removeItem(ACTIVE_USER);

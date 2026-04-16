@@ -8,12 +8,8 @@ buttonLogout?.addEventListener("click", () => {
 });
 
 
-const initPage = () => {
-  console.log("inicio de pagina");
-  checkAuhtUser(
-    "/src/pages/auth/login/login.html",
-    "/src/pages/admin/home/home.html",
-    "client"
-  );
-};
-initPage();
+// const initPage = () => {
+//   console.log("inicio de pagina");
+//   checkAuhtUser();
+// };
+// initPage();
