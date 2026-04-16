@@ -20,22 +20,10 @@ export function getUser(): (IUser & { password: string })[] {
 //Devuelve el usuario logeado en el momento
 export const getUserData = () => {
   //return localStorage.getItem(ACTIVE_USER); !!codigo anterior
-  //PROBAR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   const data = localStorage.getItem(ACTIVE_USER);
   return data ? JSON.parse(data) : null;
 };
 
-// export const getUserNoPass = (): IUser | null => {
-//   const data = localStorage.getItem(ACTIVE_USER);
-//   if (!data) return null;
-
-//   const user = JSON.parse(data);
-
-//   // Eliminamos el password antes de devolver
-//   const { password, ...safeUser } = user;
-
-//   return safeUser as IUser;
-// };
 
 //quita el usuario
 export const removeUser = () => {
@@ -44,15 +32,16 @@ export const removeUser = () => {
 
 export const findUserByEmail = (email: string) => {
   //busca usuario, si es null lo pasa a undefined
-  const users = getUser();
-  const foundUser = users.find(u => u.email === email)
+  // const users = getUser();
+  // const foundUser = users.find(u => u.email === email)
+  return getUser().find(u => u.email === email);
   //probar con return getUser().find(u => u.email === email); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   
-  if (!foundUser) {
-    return undefined;
-  }
+  // if (!foundUser) {
+  //   return undefined;
+  // }
 
-  return foundUser;
+  // return foundUser;
 };
 
 // Creacion del admin

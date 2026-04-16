@@ -33,6 +33,7 @@ import { navigate } from "./navigate";
 export const checkAuhtUser = () => {
   const currentPath = window.location.pathname;
   console.log("Ruta actual:", currentPath);
+
   const publicRoutes = [
     "/src/pages/auth/login/login.html",
     "/src/pages/auth/registro/registro.html"
