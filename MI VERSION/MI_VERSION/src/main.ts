@@ -1,12 +1,16 @@
 import { getUserData } from "./utils/localStorage";
 import { navigate } from "./utils/navigate";
 import type { IUser } from "./types/IUser";
+import { initAdmin } from "./utils/localStorage";
+
+// Ejecuta la creación del admin si no existe
+initAdmin();
 
 export function guard(requiredRole?: "admin" | "client") {
     const userData = getUserData();
 
     if (!userData) {
-        // No hay sesión → al login
+        // si no hay sesion vuelve al login
         navigate("/src/pages/auth/login/login.html");
         return;
     }

@@ -19,7 +19,10 @@ export function getUser(): (IUser & { password: string })[] {
 
 //Devuelve el usuario logeado en el momento
 export const getUserData = () => {
-  return localStorage.getItem(ACTIVE_USER);
+  //return localStorage.getItem(ACTIVE_USER); !!codigo anterior
+  //PROBAR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  const data = localStorage.getItem(ACTIVE_USER);
+  return data ? JSON.parse(data) : null;
 };
 
 //quita el usuario
@@ -31,6 +34,7 @@ export const findUserByEmail = (email: string) => {
   //busca usuario, si es null lo pasa a undefined
   const users = getUser();
   const foundUser = users.find(u => u.email === email)
+  //probar con return getUser().find(u => u.email === email); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   
   if (!foundUser) {
     return undefined;
